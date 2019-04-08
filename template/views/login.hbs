@@ -1,0 +1,14 @@
+{{>header}}
+<h3>Login</h3>
+ <form action="/ingresar" method="POST">
+         <div class="form-group">
+            <label for="usuario">Usuario</label>
+            <input required type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
+        </div>
+         <div class="form-group">
+            <label for="contrasena">Contraseña</label>
+            <input required type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña">
+        </div>
+        <button>Ingresar</button>
+    </form>
+{{>footer}}
