@@ -21,7 +21,7 @@ hbs.registerHelper('veraspirantes', () => {
 });
 
 hbs.registerHelper('roles', () => {
-    let roles = [{nombre: 'Aspirante'}, { nombre: 'Coordinador'}]
+    let roles = [{nombre: 'Aspirante'}, { nombre: 'Cordinador'}]
         texto = `
          <div class="form-group">
              <label for="roleselect">Rol</label>

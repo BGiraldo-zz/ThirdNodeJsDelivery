@@ -48,7 +48,7 @@ app.get('/cordinador', (req, res) => {
 });
 
 app.post('/registrarcurso', (req, res) => {
-    let curso = {
+    let curso = new Curso ({
         id: parseInt(req.body.id),
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
@@ -56,9 +56,13 @@ app.post('/registrarcurso', (req, res) => {
         modalidad: req.body.modalidad,
         intensidad: parseInt(req.body.intensidad) | 0,
         estado: 'Disponible'
-    }
-    let respuesta = funciones.registrarCurso(curso);
-    res.render('mensaje', {  mensaje: respuesta });
+    })
+    curso.save((err, resultado) => {
+		if (err){
+			return res.render('mensaje', { mensaje: `<div class='alert alert-danger' role='alert'>${err}</div>`});	
+		}		
+		return res.render('mensaje', { mensaje: `<div class="alert alert-success" role="alert">Registro Exitoso</div>`});		
+	})
 });
 
 app.post('/cerrarcurso', (req, res) => {
@@ -116,7 +120,7 @@ app.post('/registrarse', (req, res) => {
         telefono: req.body.telefono,
         usuario: req.body.usuario,
         contrasena: bcrypt.hashSync(req.body.contrasena, 10),
-        rol: req.body.role
+        tipo: req.body.rol
     })
 
 	usuario.save((err, resultado) => {
@@ -145,10 +149,11 @@ app.post('/ingresar', (req, res) => {
         }	
 
          //Para crear las variables de sesión
-			req.session.usuario = resultados._id	
-            req.session.nombre = resultados.nombre
-
-			res.render('index', { sesion: true });
+            req.session.usuario = resultados
+            let role = false;
+            if(req.session.usuario.tipo === 'Cordinador') role = true;
+            
+			res.render('index', { sesion: true, rol: role });
 	})	
 })
 

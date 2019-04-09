@@ -20,15 +20,18 @@
         <br>
         <div id="browse_app">
             <a class="btn btn-large btn-info" href="/">Home</a>
-            <a class="btn btn-large btn-info" href="registro">Registro</a>
-            <a class="btn btn-large btn-info" href="login">Login</a>
-            <a class="btn btn-large btn-info" href="logout">Logout</a>
-            {{#if sesion}} 
-            <a class="btn btn-large btn-info" href="cordinador">Cordinador</a>
-             <a class="btn btn-large btn-info" href="aspirante">Aspirante</a>
+            {{#if sesion}}
+                {{#if rol}}
+                    <a class="btn btn-large btn-info" href="cordinador">Cordinador</a>
+                {{else}}
+                    <a class="btn btn-large btn-info" href="aspirante">Aspirante</a>
+                {{/if}}
+                    <a class="btn btn-large btn-info" href="logout">Logout</a>
             {{else}}
             <a class="btn btn-large btn-info" href="interesado">Interesado</a>
-         {{/if}}
+            <a class="btn btn-large btn-info" href="registro">Registro</a>
+            <a class="btn btn-large btn-info" href="login">Login</a>
+            {{/if}}
         </div>
 
         <hr>

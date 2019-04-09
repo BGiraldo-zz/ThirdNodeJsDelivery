@@ -39,10 +39,9 @@ app.use(session({
 // Middleware
 app.use((req, res, next) =>{
 	//En caso de usar variables de sesión
-	console.log(req.session);
 	if(req.session.usuario){		
-		res.locals.sesion = true
-		res.locals.nombre = req.session.nombre
+		res.locals.sesion = true;
+		if(req.session.usuario.tipo === 'Cordinador') res.locals.rol = true;
 	}
 	next()
 })

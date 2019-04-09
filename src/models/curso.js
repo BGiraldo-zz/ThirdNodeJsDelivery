@@ -5,7 +5,8 @@ var uniqueValidator = require('mongoose-unique-validator');
 const cursoSchema = new Schema({
 	id : {
 		type : Number,
-		required : true
+		required : true,
+		unique: true
 	},
 	nombre :{
 		type : String,
@@ -34,7 +35,7 @@ const cursoSchema = new Schema({
 	}
 });
 
-cursoSchema.plugin(uniqueValidator);
+cursoSchema.plugin(uniqueValidator,  { message: 'El valor indicado en {PATH} no esta disponible' } );
 
 const Curso = mongoose.model('Curso', cursoSchema);
 
