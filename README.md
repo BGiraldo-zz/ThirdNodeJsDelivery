@@ -11,7 +11,7 @@
 4. Dirijase a su navegador de preferencia y vaya a la dirección http://localhost:3000/ para ver la aplicación ejecutandose.
 
 Revise que funcione conforme a lo que dice la entrega.
-"Segunda entrega (individual)"
+"Tercera entrega (individual)"
 
 **NOTA:** Tenga en cuenta que el puerto 3000 NO debe estar siendo ya usado por otro proceso y que navegadores como Chrome guardan información en cache.
 

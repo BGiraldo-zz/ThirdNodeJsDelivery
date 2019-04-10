@@ -8,7 +8,7 @@ const usuarioSchema = new Schema({
 		required : true,
 		unique: [true, 'Ya existe usuario con la identificación indicada']
 	},
-	cursoid :{
+	cursos :{
 		type : [Number]
 	},
 	nombre : {
